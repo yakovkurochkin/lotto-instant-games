@@ -7,7 +7,7 @@
     "test": "playwright test",
     "test:report": "playwright show-report",
     "docker:build": "docker build -t lotto-tests .",
-    "docker:run": "docker run --rm lotto-tests"
+    "docker:run": "docker run --rm -v $(pwd)/playwright-report:/app/playwright-report lotto-tests"
   },
   "keywords": [],
   "author": "",
