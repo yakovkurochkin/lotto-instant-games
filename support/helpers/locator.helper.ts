@@ -13,6 +13,8 @@ export class LocatorHelper {
      * @param locator
      */
     async swipeLeft(locator: Locator): Promise<void> {
+        await locator.scrollIntoViewIfNeeded();
+
         const box = await locator.boundingBox();
         if (!box) throw new Error('Could not get bounding box for locator');
 
