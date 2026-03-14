@@ -20,11 +20,11 @@ test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ p
         await targetGame.click();
     })
 
-    const gameUrl = `${gamePage.url}${targetGameName.toLowerCase().replace(/\s/g, '')}`;
+    const gameNameUrlPart = `${targetGameName.toLowerCase().replace(/\s/g, '')}`;
 
     await expect(page, 'Verify that the correct game page is opened / loaded')
-        .toHaveURL(new RegExp(gameUrl));
-    await expect(gamePage.pageTittle, 'Page has correct tittle').toContainText(targetGameName);
+        .toHaveURL(new RegExp(gamePage.url + gameNameUrlPart));
+    await expect(gamePage.pageTitle, 'Page has correct title').toContainText(targetGameName);
     await expect(gamePage.gameHelpButton, 'Verify that the correct help link “Zur [game name] Hilfe” is on the page')
         .toContainText(`Zur ${targetGameName} Hilfe`);
 
@@ -33,8 +33,8 @@ test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ p
     })
 
     await expect(page, 'Verify that the correct help page is opened')
-        .toHaveURL(new RegExp(`${gameHelpPage.url}${targetGameName.toLowerCase().replace(/\s/g, '')}`));
-    await expect(gameHelpPage.pageTittle, 'Page has correct tittle').toContainText(gameHelpPage.tittle);
+        .toHaveURL(new RegExp(gameHelpPage.url + gameNameUrlPart));
+    await expect(gameHelpPage.pageTitle, 'Page has correct title').toContainText(gameHelpPage.title);
     await expect(gameHelpPage.gameName, 'Page has correct game name').toContainText(targetGameName);
 
     await expect(gameHelpPage.gameHelpSelectedOption, 'Verify that the correct game is selected in the combo box on the help page')
@@ -43,5 +43,5 @@ test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ p
     await expect(gameHelpPage.contentGameButton, 'Verify that the button on the help page links to the correct game')
         .toHaveText(`${targetGameName} spielen`);
     await expect(gameHelpPage.contentGameButton, 'Verify that the button on the help page has the correct href')
-        .toHaveAttribute('href', gameUrl);
+        .toHaveAttribute('href', gamePage.url + gameNameUrlPart);
 });
