@@ -1,4 +1,5 @@
 import {test, expect} from "../support/fixtures/fixtures";
+import {toUrlSlug} from "../support/utils/url";
 
 test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ page, indexPage, locatorHelper, gamePage, gameHelpPage }) => {
     await test.step('Open the games area on a mobile viewport', async () => {
@@ -21,7 +22,7 @@ test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ p
         await targetGame.click();
     })
 
-    const gameNameUrlPart = `${targetGameName.toLowerCase().replace(/\s/g, '')}`;
+    const gameNameUrlPart = toUrlSlug(targetGameName);
 
     await expect(page, 'Verify that the correct game page is opened / loaded')
         .toHaveURL(new RegExp(gamePage.url + gameNameUrlPart));
