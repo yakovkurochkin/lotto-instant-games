@@ -1,6 +1,6 @@
 # Lotto24 Instant Games E2E Tests
 
-Playwright-based end-to-end test suite for [lotto24.de](https://games.lotto24.de) instant games, targeting mobile browsers.
+Playwright-based end-to-end test suite for [games.lotto24.de](https://games.lotto24.de) instant games, targeting mobile browsers.
 
 ## Development Browser
 
