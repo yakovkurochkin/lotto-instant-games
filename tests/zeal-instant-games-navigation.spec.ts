@@ -12,7 +12,8 @@ test('ZEAL Instant Games Teaser Carousel – Mobile Navigation Flow', async ({ p
         await locatorHelper.swipeLeft(indexPage.instantGamesTeaserSection);
     })
 
-    // nth 3 because we can see small parts of 3 games from previous slide
+    // After 2 swipes, the carousel shows 3 partially visible games from the previous slide
+    // on the left edge, followed by the first fully visible game — hence nth(3).
     const targetGame = indexPage.instantGamesTeaserSection.locator(indexPage.gameName).filter({visible: true}).nth(3);
     const targetGameName = await targetGame.innerText();
 
