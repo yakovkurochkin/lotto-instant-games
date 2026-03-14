@@ -53,30 +53,6 @@ npm run docker:build
 npm run docker:run
 ```
 
-## Test Targets
-
-Tests run on two mobile emulated devices:
-
-| Project       | Device              |
-|---------------|---------------------|
-| Mobile Chrome | Pixel 7             |
-| Mobile Safari | iPhone 15 Pro Max   |
-
-## Configuration
-
-Key settings in `playwright.config.ts`:
-
-| Setting        | Value                          |
-|----------------|--------------------------------|
-| Base URL       | `https://games.lotto24.de`    |
-| Retries (CI)   | 2                              |
-| Workers (CI)   | 1                              |
-| Trace          | Retained on failure            |
-
-Cookie consent is pre-accepted via `global.setup.ts` so tests skip the consent dialog.
-
----
-
 ## Case Study Notes
 
 ### Preface
