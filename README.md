@@ -25,6 +25,7 @@ support/
   fixtures/fixtures.ts   # Custom Playwright fixtures
   helpers/locator.helper.ts  # Swipe / gesture helpers
   setup/global.setup.ts  # Cookie consent setup (runs before tests)
+  utils/url.ts           # URL utility helpers (e.g. toUrlSlug)
 ```
 
 ## Prerequisites
